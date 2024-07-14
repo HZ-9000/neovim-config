@@ -16,11 +16,11 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     -- import your plugins
-    { 
-	    "rose-pine/neovim", 
-	    name = "rose-pine",
+    {
+        "ellisonleao/gruvbox.nvim", 
+        priority = 1000 , 
         config = function ()
-            vim.cmd("colorscheme rose-pine-main")
+            vim.cmd("colorscheme gruvbox")
         end
     },
     {
@@ -36,11 +36,16 @@ require("lazy").setup({
                 indent = { enable = true },  
             })
         end
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
+        dependencies = { 'nvim-lua/plenary.nvim' }
     }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "habamax" } },
+  install = { colorscheme = { "rose-pine-main" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
