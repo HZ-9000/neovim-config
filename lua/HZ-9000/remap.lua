@@ -5,3 +5,4 @@ vim.keymap.set("v", "A", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "S", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n", "<leader>zig", "<cmd>LspRestart<cr>")
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)

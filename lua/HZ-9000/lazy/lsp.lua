@@ -28,6 +28,8 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "pylsp",
+                "ts_ls",
+                "nil_ls"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -61,6 +63,18 @@ return {
                                 runtime = { version = "Lua 5.1" },
                                 diagnostics = {
                                     globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
+                                }
+                            }
+                        }
+                    }
+                end,
+                ["nil_ls"] = function()
+                    local lspconfig = require("lspconfig")
+                        lspconfig.nil_ls.setup {
+                            settings = {
+                                ['nil'] = {
+                                formatting = {
+                                    command = { "nixfmt" }
                                 }
                             }
                         }
