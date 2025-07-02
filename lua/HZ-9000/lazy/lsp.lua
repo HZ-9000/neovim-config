@@ -29,7 +29,8 @@ return {
                 "lua_ls",
                 "pylsp",
                 "ts_ls",
-                "nil_ls"
+                "nil_ls",
+                "terraformls"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
