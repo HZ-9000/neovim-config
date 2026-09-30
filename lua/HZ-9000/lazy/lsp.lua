@@ -30,7 +30,8 @@ return {
                 "pylsp",
                 "ts_ls",
                 "nil_ls",
-                "terraformls"
+                "terraformls",
+                "rust_analyzer"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -65,6 +66,18 @@ return {
                                 diagnostics = {
                                     globals = { "bit", "vim", "it", "describe", "before_each", "after_each" },
                                 }
+                            }
+                        }
+                    }
+                end,
+                ["rust_analyzer"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.rust_analyzer.setup {
+                        capabilities = capabilities,
+                        settings = {
+                            ["rust-analyzer"] = {
+                                cargo = { allFeatures = true },
+                                check = { command = "clippy" },
                             }
                         }
                     }
